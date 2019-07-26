@@ -1,0 +1,19 @@
+mat-card {
+    max-width: 800px;
+}
+mat-form-field {
+    width: calc(100% - 40px);
+}
+
+.responsiveRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.rowElt {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}

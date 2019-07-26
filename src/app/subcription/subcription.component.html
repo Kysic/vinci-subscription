@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-title>Formulaire d'inscription à l'association</mat-card-title>
+    <mat-card-subtitle>Merci de remplir ce formulaire pour demander à devenir bénévole au Samu Social de Grenoble</mat-card-subtitle>
+    <mat-card-content>
+        <form>
+            <div class="responsiveRow">
+                <div class="rowElt">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Nom</mat-label>
+                        <input #surnameField [formControl]="surnameControl" matInput type="text" placeholder="Votre nom" required>
+                        <mat-error *ngIf="surnameControl.errors?.required">Veuillez entrer votre nom</mat-error>
+                        <mat-error *ngIf="surnameControl.errors?.maxlength">Votre nom ne peut pas dépasser {{surnameMaxLength}} caractères</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="rowElt">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Prénom</mat-label>
+                        <input #firstnameField [formControl]="firstnaneControl" matInput type="text" placeholder="Votre prénom" required>
+                        <mat-error *ngIf="firstnaneControl.errors?.required">Veuillez entrer votre prénom</mat-error>
+                        <mat-error *ngIf="firstnaneControl.errors?.maxlength">Votre prénom ne peut pas dépasser {{firstnameMaxLength}} caractères</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="rowElt">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Date de naissance</mat-label>
+                        <input matInput [formControl]="birthdayControl" [min]="birthdayMinDate" [max]="birthdayMaxDate" [matDatepicker]="birthdayPicker"
+                            placeholder="JJ/MM/AAAA" required>
+                        <mat-datepicker-toggle matSuffix [for]="birthdayPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #birthdayPicker  startView="multi-year" [startAt]="birthdayStartDate"></mat-datepicker>
+                        <mat-error *ngIf="birthdayControl.errors?.required">Veuillez entrer votre date de naissance au format JJ/MM/AAAA</mat-error>
+                        <mat-error *ngIf="birthdayControl.errors?.matDatepickerMin">Il est peut probable que vous soyez aussi âgé ;-)</mat-error>
+                        <mat-error *ngIf="birthdayControl.errors?.matDatepickerMax">Vous devez être majeur pour devenir membre de l'association</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-form-field appearance="standard">
+                <mat-label>Adresse</mat-label>
+                <input #addressField [formControl]="addressControl" matInput type="text" placeholder="Votre adresse postale" required>
+                <mat-hint>{{addressField.value.length}}/{{adddressMaxLength}} caractères</mat-hint>
+                <mat-error *ngIf="addressControl.errors?.required">Veuillez entrer votre adresse</mat-error>
+                <mat-error *ngIf="addressControl.errors?.maxlength">Votre adresse ne peut pas dépasser {{adddressMaxLength}} caractères</mat-error>
+            </mat-form-field>
+
+        </form>
+    </mat-card-content>
+</mat-card>
