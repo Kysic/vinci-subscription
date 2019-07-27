@@ -48,18 +48,22 @@
             </mat-form-field>
         </responsive-row-elt>
     </responsive-row>
-    <mat-form-field appearance="standard">
-        <mat-label>Adresse</mat-label>
-        <input #addressField [formControl]="addressControl" matInput type="text" placeholder="Votre adresse postale, ex: 37 rue Pasteur 38000 Grenoble" required>
-        <mat-error *ngIf="addressControl.errors?.required">Veuillez entrer votre adresse</mat-error>
-        <mat-error *ngIf="addressControl.errors?.maxlength">Votre adresse ne peut pas dépasser {{adddressMaxLength}} caractères</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-        <mat-label>Message</mat-label>
-        <textarea #msgField [formControl]="msgControl" matInput placeholder="Ajouter un message" rows="8"></textarea>
-        <mat-hint>{{msgField.value.length}}/{{msgMaxLength}} caractères</mat-hint>
-        <mat-error *ngIf="msgControl.errors?.maxlength">Votre message ne peut pas dépasser {{msgMaxLength}} caractères</mat-error>
-    </mat-form-field>
+    <responsive-row>
+        <responsive-row-elt>
+            <mat-form-field appearance="standard">
+                <mat-label>Adresse</mat-label>
+                <input #addressField [formControl]="addressControl" matInput type="text" placeholder="Votre adresse postale, ex: 37 rue Pasteur 38000 Grenoble" required>
+                <mat-error *ngIf="addressControl.errors?.required">Veuillez entrer votre adresse</mat-error>
+                <mat-error *ngIf="addressControl.errors?.maxlength">Votre adresse ne peut pas dépasser {{adddressMaxLength}} caractères</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>Message</mat-label>
+                <textarea #msgField [formControl]="msgControl" matInput placeholder="Ajouter un message" rows="8"></textarea>
+                <mat-hint>{{msgField.value.length}}/{{msgMaxLength}} caractères</mat-hint>
+                <mat-error *ngIf="msgControl.errors?.maxlength">Votre message ne peut pas dépasser {{msgMaxLength}} caractères</mat-error>
+            </mat-form-field>
+        </responsive-row-elt>
+    </responsive-row>
     <div class="actions">
         <button mat-raised-button color="primary" [disabled]="subscriptionForm.invalid">Envoyer</button>
     </div>

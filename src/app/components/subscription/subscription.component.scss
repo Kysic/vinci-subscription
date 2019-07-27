@@ -1,3 +1,7 @@
 mat-card {
     max-width: 800px;
+    margin: auto;
+}
+mat-card-title, mat-card-subtitle {
+    text-align: center;
 }
