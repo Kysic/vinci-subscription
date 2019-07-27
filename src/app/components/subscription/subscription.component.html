@@ -2,6 +2,10 @@
     <mat-card-title>Formulaire d'inscription à l'association</mat-card-title>
     <mat-card-subtitle>Merci de remplir ce formulaire pour demander à devenir bénévole au Samu Social de Grenoble</mat-card-subtitle>
     <mat-card-content>
-        <app-subscription-form (memberSubscription)="send($event)"></app-subscription-form>
+        <div *ngIf="subscriptionSent" class="info">
+            <p>Votre demande a bien été envoyée, merci de votre intérêt pour l'association.</p>
+            <p>Nous vous recontacterons prochainement, merci pour votre patience.</p>
+        </div>
+        <app-subscription-form *ngIf="!subscriptionSent" (memberSubscription)="send($event)"></app-subscription-form>
     </mat-card-content>
 </mat-card>

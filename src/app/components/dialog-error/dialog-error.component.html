@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Une erreur est survenue</h1>
+<div mat-dialog-content>
+  Malheureusement votre demande n'a pas pu être transmise suite à une erreur lors de l'appel distant.
+
+  <pre>{{ data.errorMsg }}</pre>
+
+  Si l'erreur persiste, merci de nous contacter par email.
+</div>
+<div mat-dialog-actions align=end>
+  <button mat-button [mat-dialog-close] cdkFocusInitial>Ok</button>
+</div>
