@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubcriptionComponent } from './subcription.component';
+import { SubcriptionFormComponent } from './subscription-form.component';
 
 describe('SubcriptionComponent', () => {
-  let component: SubcriptionComponent;
-  let fixture: ComponentFixture<SubcriptionComponent>;
+  let component: SubcriptionFormComponent;
+  let fixture: ComponentFixture<SubcriptionFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubcriptionComponent ]
+      declarations: [ SubcriptionFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubcriptionComponent);
+    fixture = TestBed.createComponent(SubcriptionFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
