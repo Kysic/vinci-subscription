@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-subcription',
@@ -9,7 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class SubcriptionComponent implements OnInit {
 
   firstnameMaxLength = 20;
-  firstnaneControl = new FormControl(null, [Validators.required, Validators.maxLength(this.firstnameMaxLength)]);
+  firstnameControl = new FormControl(null, [Validators.required, Validators.maxLength(this.firstnameMaxLength)]);
   surnameMaxLength = 20;
   surnameControl = new FormControl(null, [Validators.required, Validators.maxLength(this.surnameMaxLength)]);
   birthdayMinDate = new Date(1900, 0, 1);
@@ -17,10 +17,24 @@ export class SubcriptionComponent implements OnInit {
   today = new Date();
   birthdayMaxDate = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
   birthdayControl = new FormControl(null, [Validators.required]);
+  mailControl = new FormControl(null, [Validators.required, Validators.email]);
+  phoneNumberControl = new FormControl(null, [Validators.required]);
   adddressMaxLength = 120;
   addressControl = new FormControl(null, [Validators.required, Validators.maxLength(this.adddressMaxLength)]);
+  msgMaxLength = 1000;
+  msgControl = new FormControl(null, [Validators.maxLength(this.msgMaxLength)]);
+  subscriptionForm: FormGroup;
 
-  constructor() {}
+  constructor(fb: FormBuilder) {
+    this.subscriptionForm = fb.group({
+      firstname: this.firstnameControl,
+      surname: this.surnameControl,
+      birthday: this.birthdayControl,
+      mail: this.mailControl,
+      phoneNumber: this.phoneNumberControl,
+      msg: this.msgControl,
+    });
+  }
 
   ngOnInit() {
   }
