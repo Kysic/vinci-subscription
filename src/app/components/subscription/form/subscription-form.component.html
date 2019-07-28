@@ -1,20 +1,26 @@
 
 <form (ngSubmit)="submit()" [formGroup]="subscriptionForm">
     <responsive-row>
-        <responsive-row-elt>
-            <mat-form-field appearance="standard">
-                <mat-label>Nom</mat-label>
-                <input #surnameField formControlName="surname" matInput type="text" placeholder="Votre nom" required>
-                <mat-error *ngIf="surnameControl.errors?.required">Veuillez entrer votre nom</mat-error>
-                <mat-error *ngIf="surnameControl.errors?.maxlength">Votre nom ne peut pas dépasser {{surnameMaxLength}} caractères</mat-error>
-            </mat-form-field>
+        <responsive-row-elt shrink>
+            <mat-button-toggle-group appearance="standard" formControlName="gender">
+                <mat-button-toggle value="F">Madame</mat-button-toggle>
+                <mat-button-toggle value="M">Monsieur</mat-button-toggle>
+            </mat-button-toggle-group>
         </responsive-row-elt>
         <responsive-row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Prénom</mat-label>
-                <input #firstnameField formControlName="firstname" matInput type="text" placeholder="Votre prénom" required>
+                <input formControlName="firstname" matInput type="text" placeholder="Votre prénom" required>
                 <mat-error *ngIf="firstnameControl.errors?.required">Veuillez entrer votre prénom</mat-error>
                 <mat-error *ngIf="firstnameControl.errors?.maxlength">Votre prénom ne peut pas dépasser {{firstnameMaxLength}} caractères</mat-error>
+            </mat-form-field>
+        </responsive-row-elt>
+        <responsive-row-elt>
+            <mat-form-field appearance="standard">
+                <mat-label>Nom</mat-label>
+                <input formControlName="surname" matInput type="text" placeholder="Votre nom" required>
+                <mat-error *ngIf="surnameControl.errors?.required">Veuillez entrer votre nom</mat-error>
+                <mat-error *ngIf="surnameControl.errors?.maxlength">Votre nom ne peut pas dépasser {{surnameMaxLength}} caractères</mat-error>
             </mat-form-field>
         </responsive-row-elt>
         <responsive-row-elt>
@@ -29,20 +35,10 @@
                 <mat-error *ngIf="birthdayControl.errors?.matDatepickerMax">Vous devez être majeur pour devenir membre de l'association</mat-error>
             </mat-form-field>
         </responsive-row-elt>
-    </responsive-row>
-    <responsive-row>
-        <responsive-row-elt>
-            <mat-form-field appearance="standard">
-                <mat-label>Adresse email</mat-label>
-                <input #mailField [formControl]="emailControl" matInput type="text" placeholder="Votre adresse email, ex: zoe.pot@mailer.com" required>
-                <mat-error *ngIf="emailControl.errors?.required">Veuillez entrer l'adresse email où vous joindre</mat-error>
-                <mat-error *ngIf="emailControl.errors?.email">L'adresse email saisie est invalide</mat-error>
-            </mat-form-field>
-        </responsive-row-elt>
         <responsive-row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Numéro de téléphone</mat-label>
-                <input #phoneNumberField [formControl]="phoneNumberControl" matInput type="text" placeholder="Votre numéro de téléphone, ex: 06 01 02 03 04" required>
+                <input [formControl]="phoneNumberControl" matInput type="text" placeholder="Votre téléphone, ex: 06 01 02 03 04" required>
                 <mat-error *ngIf="phoneNumberControl.errors?.required">Veuillez entrer le numéro de téléphone où vous joindre</mat-error>
                 <mat-error *ngIf="phoneNumberControl.errors?.pattern">Numéro de téléphone incorrect, ex: 06 01 02 03 04</mat-error>
             </mat-form-field>
@@ -51,9 +47,19 @@
     <responsive-row>
         <responsive-row-elt>
             <mat-form-field appearance="standard">
-                <mat-label>Adresse</mat-label>
-                <input #addressField [formControl]="addressControl" matInput type="text" placeholder="Votre adresse postale, ex: 37 rue Pasteur 38000 Grenoble" required>
-                <mat-error *ngIf="addressControl.errors?.required">Veuillez entrer votre adresse</mat-error>
+                <mat-label>Adresse email</mat-label>
+                <input [formControl]="emailControl" matInput type="text" placeholder="Votre email, ex: zoe.pot@mailer.com" required>
+                <mat-error *ngIf="emailControl.errors?.required">Veuillez entrer l'adresse email où vous joindre</mat-error>
+                <mat-error *ngIf="emailControl.errors?.email">L'adresse email saisie est invalide</mat-error>
+            </mat-form-field>
+        </responsive-row-elt>
+    </responsive-row>
+    <responsive-row>
+        <responsive-row-elt>
+            <mat-form-field appearance="standard">
+                <mat-label>Adresse postale</mat-label>
+                <input [formControl]="addressControl" matInput type="text" placeholder="Votre adresse postale, ex: 37 rue Pasteur 38000 Grenoble" required>
+                <mat-error *ngIf="addressControl.errors?.required">Veuillez entrer votre adresse postale</mat-error>
                 <mat-error *ngIf="addressControl.errors?.maxlength">Votre adresse ne peut pas dépasser {{adddressMaxLength}} caractères</mat-error>
             </mat-form-field>
             <mat-form-field appearance="standard">
