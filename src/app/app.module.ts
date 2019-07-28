@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
 import { AppComponent } from './app.component';
 import { SubcriptionComponent } from './components/subscription/subscription.component';
 import { SubcriptionFormComponent } from './components/subscription/form/subscription-form.component';
@@ -24,6 +26,7 @@ import { DialogErrorComponent } from './components/dialog-error/dialog-error.com
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    LoadingBarHttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,

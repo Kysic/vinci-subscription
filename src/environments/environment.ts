@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  subscriptionApiUrl: 'https://script.google.com/macros/s/AKfycbzkB-LEvkxk20I5SKaOWEymEh50f3Co9c5ry05Q/exec',
+  subscriptionApiUrl: '/api/addMember.php',
 };
 
 /*

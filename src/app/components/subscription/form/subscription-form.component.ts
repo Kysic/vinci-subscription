@@ -21,14 +21,14 @@ export class SubcriptionFormComponent {
   today = new Date();
   birthdayMaxDate = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
   adddressMaxLength = 120;
-  msgMaxLength = 1000;
+  messageMaxLength = 1000;
   firstnameControl = new FormControl(null, [Validators.required, Validators.maxLength(this.firstnameMaxLength)]);
   surnameControl = new FormControl(null, [Validators.required, Validators.maxLength(this.surnameMaxLength)]);
   birthdayControl = new FormControl(null, [Validators.required]);
   emailControl = new FormControl(null, [Validators.required, Validators.email]);
-  phoneNumberControl = new FormControl(null, [Validators.required, Validators.pattern("^[\+]?[0-9 \-]{10,}$")]);
+  phoneNumberControl = new FormControl(null, [Validators.required, Validators.pattern("^[\+]?[0-9 \-]{10,30}$")]);
   addressControl = new FormControl(null, [Validators.required, Validators.maxLength(this.adddressMaxLength)]);
-  msgControl = new FormControl(null, [Validators.maxLength(this.msgMaxLength)]);
+  messageControl = new FormControl(null, [Validators.maxLength(this.messageMaxLength)]);
   subscriptionForm: FormGroup;
 
   constructor(fb: FormBuilder) {
@@ -39,7 +39,7 @@ export class SubcriptionFormComponent {
       email: this.emailControl,
       phoneNumber: this.phoneNumberControl,
       addressControl: this.addressControl,
-      msg: this.msgControl,
+      message: this.messageControl,
     });
   }
 
@@ -54,7 +54,7 @@ export class SubcriptionFormComponent {
     }
     const ms: MemberSubscription = {
       member: newMember,
-      msg: this.msgControl.value,
+      message: this.messageControl.value,
     };
     this.memberSubscription.emit(ms);
   }
