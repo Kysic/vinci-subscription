@@ -25,6 +25,7 @@ export class SubcriptionComponent implements OnInit {
   }
 
   send(memberSubscription: MemberSubscription): void {
+    console.log('sending member subscription', memberSubscription);
     this.subscriptionService.sendMemberSubscription(memberSubscription).subscribe(
       () => this.subscriptionSent = true,
       error => this.showError(error)

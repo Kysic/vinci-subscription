@@ -2,7 +2,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatInputModule, MatNativeDateModule, MatButtonToggleModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatInputModule,
+         MatButtonToggleModule, MAT_DATE_LOCALE } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
@@ -33,11 +35,13 @@ import { DialogErrorComponent } from './components/dialog-error/dialog-error.com
     MatDatepickerModule,
     MatDialogModule,
     MatInputModule,
-    MatNativeDateModule,
+    MatMomentDateModule,
     ReactiveFormsModule,
     ResponsiveRowModule,
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

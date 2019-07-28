@@ -2,6 +2,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import * as moment from 'moment';
+
 import { Member } from '../../../model/member';
 import { MemberSubscription } from '../../../model/member-subscription';
 
@@ -17,7 +19,7 @@ export class SubcriptionFormComponent {
   firstnameMaxLength = 20;
   surnameMaxLength = 20;
   birthdayMinDate = new Date(1900, 0, 1);
-  birthdayStartDate = new Date(1970, 0, 1);
+  birthdayStartDate = new Date(1980, 0, 1);
   today = new Date();
   birthdayMaxDate = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
   adddressMaxLength = 120;
@@ -50,7 +52,7 @@ export class SubcriptionFormComponent {
       gender: this.genderControl.value,
       surname: this.surnameControl.value,
       firstname: this.firstnameControl.value,
-      birthday: this.birthdayControl.value,
+      birthday: moment(this.birthdayControl.value).format('DD/MM/YYYY'),
       email: this.emailControl.value,
       phoneNumber: this.phoneNumberControl.value,
       address: this.addressControl.value,
