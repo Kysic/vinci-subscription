@@ -22,7 +22,7 @@ export class SubcriptionFormComponent {
   birthdayMaxDate = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
   adddressMaxLength = 120;
   messageMaxLength = 1000;
-  genderControl = new FormControl(null, [Validators.required]);
+  genderControl = new FormControl('F', [Validators.required]);
   firstnameControl = new FormControl(null, [Validators.required, Validators.maxLength(this.firstnameMaxLength)]);
   surnameControl = new FormControl(null, [Validators.required, Validators.maxLength(this.surnameMaxLength)]);
   birthdayControl = new FormControl(null, [Validators.required]);
