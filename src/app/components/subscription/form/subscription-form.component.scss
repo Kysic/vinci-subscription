@@ -7,7 +7,7 @@ $app-theme: mat-light-theme($app-primary, $app-accent);
 $primary: map-get($app-theme, primary);
 $accent: map-get($app-theme, accent);
 
-responsive-row-elt {
+row-elt {
     padding: 20px;
 }
 mat-form-field {

@@ -1,29 +1,29 @@
 
 <form (ngSubmit)="submit()" [formGroup]="subscriptionForm">
-    <responsive-row>
-        <responsive-row-elt shrink>
+    <row>
+        <row-elt shrink>
             <mat-button-toggle-group appearance="standard" formControlName="gender">
                 <mat-button-toggle value="F" color="primary">Madame</mat-button-toggle>
                 <mat-button-toggle value="M" color="primary">Monsieur</mat-button-toggle>
             </mat-button-toggle-group>
-        </responsive-row-elt>
-        <responsive-row-elt>
+        </row-elt>
+        <row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Prénom</mat-label>
                 <input formControlName="firstname" matInput type="text" placeholder="Votre prénom" required>
                 <mat-error *ngIf="firstnameControl.errors?.required">Veuillez entrer votre prénom</mat-error>
                 <mat-error *ngIf="firstnameControl.errors?.maxlength">Votre prénom ne peut pas dépasser {{firstnameMaxLength}} caractères</mat-error>
             </mat-form-field>
-        </responsive-row-elt>
-        <responsive-row-elt>
+        </row-elt>
+        <row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Nom</mat-label>
                 <input formControlName="surname" matInput type="text" placeholder="Votre nom" required>
                 <mat-error *ngIf="surnameControl.errors?.required">Veuillez entrer votre nom</mat-error>
                 <mat-error *ngIf="surnameControl.errors?.maxlength">Votre nom ne peut pas dépasser {{surnameMaxLength}} caractères</mat-error>
             </mat-form-field>
-        </responsive-row-elt>
-        <responsive-row-elt>
+        </row-elt>
+        <row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Date de naissance</mat-label>
                 <input matInput [formControl]="birthdayControl" [min]="birthdayMinDate" [max]="birthdayMaxDate" [matDatepicker]="birthdayPicker"
@@ -34,28 +34,29 @@
                 <mat-error *ngIf="birthdayControl.errors?.matDatepickerMin">Il est peut probable que vous soyez aussi âgé ;-)</mat-error>
                 <mat-error *ngIf="birthdayControl.errors?.matDatepickerMax">Vous devez être majeur pour devenir membre de l'association</mat-error>
             </mat-form-field>
-        </responsive-row-elt>
-        <responsive-row-elt>
+        </row-elt>
+        <row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Numéro de téléphone</mat-label>
-                <input [formControl]="phoneNumberControl" matInput type="text" placeholder="Votre téléphone, ex: 06 01 02 03 04" required>
+                <input [formControl]="phoneNumberControl" matInput type="text" placeholder="Votre téléphone, ex: 06 01 02 03 04" required
+                    french-phone-number>
                 <mat-error *ngIf="phoneNumberControl.errors?.required">Veuillez entrer le numéro de téléphone où vous joindre</mat-error>
                 <mat-error *ngIf="phoneNumberControl.errors?.pattern">Numéro de téléphone incorrect, ex: 06 01 02 03 04</mat-error>
             </mat-form-field>
-        </responsive-row-elt>
-    </responsive-row>
-    <responsive-row>
-        <responsive-row-elt>
+        </row-elt>
+    </row>
+    <row>
+        <row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Adresse email</mat-label>
                 <input [formControl]="emailControl" matInput type="text" placeholder="Votre email, ex: zoe.pot@mailer.com" required>
                 <mat-error *ngIf="emailControl.errors?.required">Veuillez entrer l'adresse email où vous joindre</mat-error>
                 <mat-error *ngIf="emailControl.errors?.email">L'adresse email saisie est invalide</mat-error>
             </mat-form-field>
-        </responsive-row-elt>
-    </responsive-row>
-    <responsive-row>
-        <responsive-row-elt>
+        </row-elt>
+    </row>
+    <row>
+        <row-elt>
             <mat-form-field appearance="standard">
                 <mat-label>Adresse postale</mat-label>
                 <input [formControl]="addressControl" matInput type="text" placeholder="Votre adresse postale, ex: 37 rue Pasteur 38000 Grenoble" required>
@@ -68,8 +69,8 @@
                 <mat-hint>{{messageField.value.length}}/{{messageMaxLength}} caractères</mat-hint>
                 <mat-error *ngIf="messageControl.errors?.maxlength">Votre message ne peut pas dépasser {{messageMaxLength}} caractères</mat-error>
             </mat-form-field>
-        </responsive-row-elt>
-    </responsive-row>
+        </row-elt>
+    </row>
     <div class="actions">
         <button mat-raised-button color="primary" [disabled]="subscriptionForm.invalid">Envoyer</button>
     </div>
