@@ -13,6 +13,7 @@ import { DialogErrorComponent } from '../dialog-error/dialog-error.component';
 })
 export class SubcriptionComponent implements OnInit {
 
+  inProgress: boolean = false;
   subscriptionSent: boolean = false;
   errorMsg: string;
 
@@ -24,12 +25,19 @@ export class SubcriptionComponent implements OnInit {
   ngOnInit() {
   }
 
-  send(memberSubscription: MemberSubscription): void {
-    console.log('sending member subscription', memberSubscription);
-    this.subscriptionService.sendMemberSubscription(memberSubscription).subscribe(
-      () => this.subscriptionSent = true,
-      error => this.showError(error)
-    );
+  async send(memberSubscription: MemberSubscription): Promise<void> {
+    if (!this.inProgress) {
+      this.inProgress = true;
+      try {
+        console.log('sending member subscription', memberSubscription);
+        await this.subscriptionService.sendMemberSubscription(memberSubscription).toPromise();
+        this.subscriptionSent = true;
+      } catch (error) {
+        this.showError(error);
+      } finally {
+        this.inProgress = false;
+      }
+    }
   }
 
   showError(errorMsg: string): void {

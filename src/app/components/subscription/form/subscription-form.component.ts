@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import * as moment from 'moment';
@@ -32,6 +32,7 @@ export const MY_DATE_PICKER_FORMATS = {
 })
 export class SubcriptionFormComponent {
 
+  @Input() disabled: boolean = false;
   @Output() readonly memberSubscription = new EventEmitter<MemberSubscription>();
 
   firstnameMaxLength = 20;

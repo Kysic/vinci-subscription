@@ -6,6 +6,7 @@
             <p>Votre demande a bien été envoyée, merci de votre intérêt pour l'association.</p>
             <p>Nous vous recontacterons prochainement, merci pour votre patience.</p>
         </div>
-        <app-subscription-form *ngIf="!subscriptionSent" (memberSubscription)="send($event)"></app-subscription-form>
+        <app-subscription-form *ngIf="!subscriptionSent" (memberSubscription)="send($event)"
+            [disabled]=inProgress></app-subscription-form>
     </mat-card-content>
 </mat-card>
